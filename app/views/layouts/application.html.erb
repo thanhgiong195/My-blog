@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
   <head>
-    <title>Project2Myblog</title>
-      <%= csrf_meta_tags %>
-      <%= stylesheet_link_tag "application", media: "all",
-        "data-turbolinks-track": "reload" %>
-      <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <title><%= t ".title" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet" type="text/css">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
   <body>
     <%= render "layouts/header" %>

@@ -1,2 +1,92 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="banner">
+  <div class="container">
+    <h2><%= t ".content_page" %></h2>
+    <p><%= t ".text_ct" %></p>
+    <%= link_to t(".read"), "#" %>
+  </div>
+</div>
+<div class="technology">
+  <div class="container">
+    <div class="col-md-9 technology-left">
+      <div class="tech-no">
+        <div class="tc-ch wow fadeInDown">
+          <div class="tch-img">
+            <a href="#"><%= image_tag "f2.jpg", class: "img-responsive" %></a>
+          </div>
+          <h3><a href="#l"><%= t ".txt_post" %></a></h3>
+          <h6><%= t ".by" %> <a href="#"><%= t ".author_post" %></a> <%= t ".time_post" %></h6>
+          <p><%= t ".post_title" %></p>
+          <div class="bht1">
+            <%= link_to t(".read"), "#" %>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="wthree">
+          <div class="col-md-6 wthree-left wow fadeInDown">
+            <div class="tch-img">
+              <a href="#"><%= image_tag "f1.jpg", class: "img-responsive" %></a>
+            </div>
+          </div>
+          <div class="col-md-6 wthree-right wow fadeInDown">
+            <h3><a href="#l"><%= t ".txt_post" %></a></h3>
+            <h6><%= t ".by" %> <a href="#"><%= t ".author_post" %></a> <%= t ".time_post" %></h6>
+            <p><%= t ".post_title" %></p>
+            <div class="bht1">
+              <%= link_to t(".read"), "#" %>
+            </div>
+            <div class="soci">
+              <ul>
+                <li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
+                <li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
+              </ul>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 technology-right">
+      <div class="blo-top1">
+        <div class="tech-btm">
+          <div class="search-1 wow fadeInDown">
+            <form action="#" method="post">
+              <input type="search" name="Search" value="Search">
+              <input type="submit" value=" ">
+            </form>
+          </div>
+          <h4><%= t ".popular_post" %></h4>
+          <div class="blog-grids wow fadeInDown">
+            <div class="blog-grid-left">
+              <a href="#"><%= image_tag "t2.jpg", class: "img-responsive" %></a>
+            </div>
+            <div class="blog-grid-right">
+              <h5><a href="#"><%= t ".txt_post" %></a> </h5>
+            </div>
+            <div class="clearfix"> </div>
+          </div>
+        <div class="blog-grids wow fadeInDown">
+          <div class="blog-grid-left">
+            <a href="#"><%= image_tag "m3.jpg", class: "img-responsive" %></a>
+          </div>
+          <div class="blog-grid-right">
+            <h5><a href="#"><%= t ".txt_post" %></a> </h5>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+        <div class="insta wow fadeInDown">
+          <h4><%= t ".users" %></h4>
+          <ul>
+            <li><a href="#"><%= image_tag "t1.jpg", class: "img-responsive" %></a></li>
+            <li><a href="#"><%= image_tag "m1.jpg", class: "img-responsive" %></a></li>
+            <li><a href="#"><%= image_tag "f1.jpg", class: "img-responsive" %></a></li>
+            <li><a href="#"><%= image_tag "m2.jpg", class: "img-responsive" %></a></li>
+          </ul>
+        </div>
+        <p><%= t ".txt" %></p>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
