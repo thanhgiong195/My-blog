@@ -1,9 +1,11 @@
 source "https://rubygems.org"
 
+gem "bootstrap"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
 gem "jbuilder", "~> 2.5"
+gem "jquery-rails"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.1"
 gem "sass-rails", "~> 5.0"
@@ -41,6 +43,7 @@ group :development, :test do
   gem "scss_lint", require: false
   gem "scss_lint_reporter_checkstyle", require: false
   gem "selenium-webdriver"
+  gem "rspec-html-matchers"
 end
 
 group :test do
