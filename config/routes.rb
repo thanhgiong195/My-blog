@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     registrations: "users/registrations"
   }
-
   devise_scope :user do
     get "signin", to: "users/sessions#new"
     post "signin", to: "users/sessions#create"
     get "signup", to: "users/registrations#new"
     post "signup", to: "users/registrations#create"
   end
+  resources :users, only: :show
 end

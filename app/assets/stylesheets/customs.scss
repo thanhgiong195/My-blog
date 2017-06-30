@@ -21,7 +21,7 @@
 }
 
 .fullscreen {
-  background-image: url('abc.jpg');
+  background-image: image-url('abc.jpg');
   background-repeat: repeat;
 }
 
@@ -34,5 +34,26 @@
     font-weight: bold;
     text-decoration: none;
     transition: all .1s linear;
+  }
+}
+
+.avatar {
+  .btn-ava {
+    display: none;
+  }
+
+  .change-btn {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  img {
+    border: 1px;
+    border-radius: 50%;
+    display: block;
+    height: 150px;
+    margin: auto;
+    width: 150px;
   }
 }

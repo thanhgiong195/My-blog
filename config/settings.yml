@@ -2,6 +2,9 @@ user:
   name_max: 150
   email_max: 255
   password_min: 6
+  avatar_default: "pic.png"
+  avatar_height: 200
+  avatar_width: 250
 post:
   title_size: 300
   content_size: 1000
