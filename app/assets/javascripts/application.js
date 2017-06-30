@@ -15,3 +15,8 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require classie.js
+//= require jquery.chocolat.js
+//= require modernizr.custom.js
+//= require uisearch.js
+//= require wow.min.js

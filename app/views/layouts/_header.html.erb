@@ -1,15 +1,12 @@
 <div class="header" id="ban">
   <div class="container">
-    <div class="head-left wow fadeInLeft animated animated">
-    </div>
     <div class="header_right wow fadeInLeft animated animated">
       <nav class="navbar navbar-default">
         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
           <nav class="link-effect-7" id="link-effect-7">
             <ul class="nav navbar-nav">
               <li><%= link_to t(".home"), root_path %></li>
-              <li><%= link_to t(".about"), "#" %></li>
-              <li><%= link_to t(".contact"), "#" %></li>
+              <li><%= link_to t(".post"), "#" %></li>
               <% if user_signed_in? %>
                 <li><%= link_to t(".log_out"), destroy_user_session_path,
                   method: :delete %></li>
@@ -22,13 +19,13 @@
         </div>
       </nav>
     </div>
-    <div class="clearfix"> </div>
+    <div class="clearfix"></div>
   </div>
 </div>
 <div class="header-bottom">
   <div class="container">
     <div class="logo wow fadeInDown">
-      <h1><a href="index.html"><%= t ".bebe_blog" %></a></h1>
+      <h1><%= link_to t(".bebe_blog"), root_path, class: "nav-link" %></h1>
       <p><label class="of"></label><%= t ".style" %><label class="on"></label></p>
     </div>
   </div>
