@@ -8,7 +8,8 @@
               <li><%= link_to t(".home"), root_path %></li>
               <li><%= link_to t(".post"), "#" %></li>
               <% if user_signed_in? %>
-                <li><%= link_to t(".log_out"), destroy_user_session_path,
+                <li><%= link_to t(".account"), edit_user_registration_path %></li>
+                <li><%= link_to t(".logout"), destroy_user_session_path,
                   method: :delete %></li>
               <% else %>
                 <li><%= link_to t(".sign_up"), signup_path %></li>

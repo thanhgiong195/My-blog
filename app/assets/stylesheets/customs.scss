@@ -1,0 +1,38 @@
+@import 'colors';
+
+.panel-login {
+  input {
+    border: 1px solid $color-ddd;
+    font-size: 16px;
+    height: 45px;
+    transition: all .1s linear;
+  }
+}
+
+.btn-login {
+  background-color: $color-asa;
+  border-color: $color-asd;
+  color: $primary-color-text;
+  height: 100%;
+  outline: none;
+  padding: 14px 0;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.fullscreen {
+  background-image: url('abc.jpg');
+  background-repeat: repeat;
+}
+
+.panel-heading {
+  font-size: 40px;
+  text-align: center;
+
+  a {
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .1s linear;
+  }
+}

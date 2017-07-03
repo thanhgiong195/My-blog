@@ -1,0 +1,76 @@
+<div class="fullscreen">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-login">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="title">
+                  <%= t ".edit" %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <%= form_for resource, as: resource_name,
+                  url: registration_path(resource_name) do |f| %>
+                  <%= devise_error_messages! %>
+
+                  <div class="field">
+                    <%= f.label :name, t(".name") %>
+                    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :email, t(".email") %>
+                    <%= f.email_field :email, class: "form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :address, t(".address") %>
+                    <%= f.text_field :address, class: "form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :phone, t(".phone") %>
+                    <%= f.text_field :phone, class: "form-control" %>
+                  </div>
+
+                  <% if devise_mapping.confirmable? &&
+                    resource.pending_reconfirmation? %>
+                    <div><%= t ".currnent_wai" %> <%= resource.unconfirmed_email %></div>
+                  <% end %>
+
+                  <div class="form-group">
+                    <%= f.label :password, t(".password") %>
+                    <%= f.password_field :password, class: "form-control" %>
+                    <% if @minimum_password_length %>
+                      <em><%= @minimum_password_length %> <%= t ".pass_length" %></em>
+                    <% end %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.label :password_confirmation, t(".password_cf") %>
+                    <%= f.password_field :password_confirmation, class: "form-control" %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.label :current_password, t(".current_password") %>
+                    <%= f.password_field :current_password, class: "form-control" %>
+                  </div>
+
+                  <div class="actions">
+                    <%= f.submit t(".update"), class: "btn btn-info btn-login" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
