@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     post "signup", to: "users/registrations#create"
   end
   resources :users, only: :show
+  resources :posts, expect: [:new, :index]
 end

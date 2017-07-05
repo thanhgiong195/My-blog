@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170703065518) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
+    t.string "description"
     t.text "content"
     t.string "picture"
     t.boolean "publiced"

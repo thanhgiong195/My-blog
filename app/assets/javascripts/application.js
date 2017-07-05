@@ -18,6 +18,17 @@
 //= require_tree .
 //= require classie.js
 //= require jquery.chocolat.js
-//= require modernizr.custom.js
-//= require uisearch.js
-//= require wow.min.js
+//= require jquery.timeago.js
+
+document.addEventListener("turbolinks:load", function() {
+  tinymce.remove();
+  tinymce.init({
+    selector:'textarea',
+    plugins: "link media autoresize codesample textcolor colorpicker image emoticons",
+    toolbar: "undo redo | forecolor backcolor | styleselect | bold italic | link codesample image emoticons media"
+  });
+})
+
+jQuery(document).on('turbolinks:load',function() {
+  $("time.timeago").timeago();
+});
