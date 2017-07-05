@@ -1,5 +1,4 @@
 html, body{
-font-family: 'Raleway', sans-serif;
     font-size: 100%;
     background: #f7f7f7;
 }
@@ -22,7 +21,6 @@ input[type="button"],input[type="submit"],li.parallelogram{
 }
 h1,h2,h3,h4,h5,h6{
     margin:0;
-     font-family: 'Raleway', sans-serif;
 }
 p{
     margin:0;
@@ -134,7 +132,7 @@ label.icon-search span {
     margin-left: 1em;
 }
 .social-icons ul li a {
-    background: url('social-icons.png')no-repeat -3px -2px;
+    background-image: image-url('social-icons.png')no-repeat -3px -2px;
     display: block;
     height: 22px;
     width: 20px;
@@ -189,7 +187,6 @@ label.icon-search span {
     font-size: 14px;
     padding: 10px 18px;
     text-transform: uppercase;
-    font-family: 'Raleway', sans-serif;
     font-weight: 600;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
@@ -278,7 +275,8 @@ label.on{
 }
 /*--banner--*/
 .banner{
-background: url('banner-1.jpg') no-repeat 0px 0px;
+background-image: image-url('banner.jpg');
+background-repeat: no-repeat;
 background-size:cover;
 -webkit-background-size: cover;
 -o-background-size: cover;
@@ -287,7 +285,8 @@ background-size:cover;
 min-height: 600px;
 }
 .banner-1{
-background: url('banner-1.jpg') no-repeat 0px 0px;
+background-image: image-url('banner.jpg');
+background-repeat: no-repeat;
 background-size:cover;
 -webkit-background-size: cover;
 -o-background-size: cover;
@@ -483,20 +482,20 @@ i.glyphicon.glyphicon-comment {
     border: 1px solid #d2d1d1;
 }
 .soci  ul li a.fb{
-    background: url('social.png') no-repeat -48px -7px;
+    background-image: image-url('social.png') no-repeat -48px -7px;
 }
 .soci  ul li a.twit{
-    background: url('social.png') no-repeat -7px -7px;
+    background-image: image-url('social.png') no-repeat -7px -7px;
 }
  /*-- agileits --*/
 .soci  ul li a.goog{
-    background: url('social.png') no-repeat -88px -7px;
+    background-image: image-url('social.png') no-repeat -88px -7px;
 }
 .soci  ul li a.pin{
-    background: url('social.png') no-repeat -130px -7px;
+    background-image: image-url('social.png') no-repeat -130px -7px;
 }
 .soci  ul li a.drib{
-    background: url('social.png') no-repeat -171px -7px;
+    background-image: image-url('social.png') no-repeat -171px -7px;
 }
 /*--technology-left--*/
 /*--technology-right--*/
@@ -876,7 +875,7 @@ ul.social li{
   -ms-border-radius: 65%;
 }
 .social li a.social-twitter i{
-    background:url(../images/img-sp.png) no-repeat -25px 11px #3D99DC;
+    background: image-url('img-sp.png') no-repeat -25px 11px #3D99DC;
     display: block;
     width: 40px;
     height: 40px;

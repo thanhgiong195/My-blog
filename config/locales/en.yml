@@ -72,6 +72,7 @@ en:
         current_password: "Current password"
         pass_length: "characters minimum"
         currnent_wai: "Currently waiting confirmation for:"
+        change_img: "Change avatar"
     passwords:
       new:
         forgot_pass: "Forgot your password?"
@@ -101,3 +102,14 @@ en:
     confirmations:
       new:
         resend: "Resend confirmation instructions"
+    show:
+      user_profile: "User profile"
+      edit_profile: "EditProfile"
+      name: "Name"
+      email: "Email"
+      address: "Address"
+      phone: "Phone"
+      edit: "Edit"
+      admin: "ADMIN"
+      follow: "Follow"
+      timeline: "Timeline"

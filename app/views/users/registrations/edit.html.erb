@@ -15,10 +15,15 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-                <%= form_for resource, as: resource_name,
-                  url: registration_path(resource_name) do |f| %>
+                <%= form_for @user, url: user_registration_path do |f| %>
                   <%= devise_error_messages! %>
-
+                  <div class="field">
+                    <div class="avatar">
+                      <%= image_tag @user.avatar, alt: @user.name %>
+                      <%= f.label :avatar, t(".change_img"), class: "change-btn" %>
+                      <%= f.file_field :avatar, class: "btn-ava" %>
+                    </div>
+                  </div>
                   <div class="field">
                     <%= f.label :name, t(".name") %>
                     <%= f.text_field :name, autofocus: true, class: "form-control" %>
