@@ -4,7 +4,9 @@
       <div class="tech-no">
         <div class="tc-ch wow fadeInDown">
           <div class="tch-img">
-            <%= image_tag "t4.jpg", class: "img-responsive" %>
+            <div class="img-show">
+              <%= image_tag @post.picture.url %>
+            </div>
           </div>
           <h2><%= @post.title %></h2>
           <small>
