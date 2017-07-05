@@ -1,0 +1,30 @@
+<%= form_for post do |f| %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <label for="exampleInput"><%= t ".edit" %></label>
+          </li>
+          <li class="list-group-item">
+            <%= f.label :title, t(".title") %>
+            <%= f.text_field :title, class: "form-control" %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label :description, t(".description") %>
+            <%= f.text_field :description, class: "form-control" %>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <div class="actions">
+        <%= f.submit t(".save"), class: "btn btn-success btn-block" %>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="form-group">
+        <%= f.text_area :content, rows: "13" %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -6,5 +6,8 @@ class Post < ApplicationRecord
 
   validates :user, presence: true
   validates :title, presence: true, length: {maximum: Settings.post.title_size}
+  validates :description, length: {maximum: Settings.post.title_size}
   validates :content, presence: true, length: {maximum: Settings.post.content_size}
+
+  scope :feed_sort, ->{order created_at: :desc}
 end

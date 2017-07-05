@@ -8,6 +8,8 @@ user:
 post:
   title_size: 300
   content_size: 1000
+  number_show: 5
+  length_des: 20
 comment:
   comment_max_size: 500
 tag:
