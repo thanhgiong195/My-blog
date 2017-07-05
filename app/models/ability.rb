@@ -11,6 +11,8 @@ class Ability
     else
       can :update, User, id: user.id
       can :delete, User, id: user.id
+      can :update, Post, user_id: user.id
+      can :delete, Post, user_id: user.id
     end
   end
 end
