@@ -2,26 +2,11 @@
   <div class="container">
     <h2><%= t ".content_page" %></h2>
     <p><%= t ".text_ct" %></p>
-    <%= link_to t(".read"), "#" %>
   </div>
 </div>
 <div class="technology">
   <div class="container">
     <div class="col-md-9 technology-left">
-      <%= form_for @post do |f| %>
-        <div class="field">
-          <%= f.text_field :title, placeholder: t(".title_placeholder"), class: "form-control" %>
-        </div>
-        <div class="field">
-          <%= f.text_field :description, placeholder: t(".description_placeholder"), class: "form-control" %>
-        </div>
-        <div class="field">
-          <%= f.text_area :content, placeholder: t(".content_placeholder"), rows: "5", class: "form-control" %>
-        </div>
-        <span>
-          <%= f.submit t(".post"), class: "btn btn-primary btn-post" %>
-        </span>
-      <% end %>
       <div class="tech-no">
         <%= render "shared/feed", feed_items: @feed_items %>
       </div>
@@ -36,36 +21,17 @@
             </form>
           </div>
           <h4><%= t ".popular_post" %></h4>
-          <div class="blog-grids wow fadeInDown">
-            <div class="blog-grid-left">
-              <a href="#"><%= image_tag "t2.jpg", class: "img-responsive" %></a>
-            </div>
-            <div class="blog-grid-right">
-              <h5><a href="#"><%= t ".txt_post" %></a> </h5>
-            </div>
-            <div class="clearfix"> </div>
+          <%= render "posts/top_post" %>
+          <div class="insta wow fadeInDown top-user">
+            <h4><%= t ".users" %></h4>
+            <ul>
+              <%= render @users %>
+            </ul>
           </div>
-        <div class="blog-grids wow fadeInDown">
-          <div class="blog-grid-left">
-            <a href="#"><%= image_tag "m3.jpg", class: "img-responsive" %></a>
-          </div>
-          <div class="blog-grid-right">
-            <h5><a href="#"><%= t ".txt_post" %></a> </h5>
-          </div>
-          <div class="clearfix"> </div>
+          <p><%= t ".txt" %></p>
         </div>
-        <div class="insta wow fadeInDown">
-          <h4><%= t ".users" %></h4>
-          <ul>
-            <li><a href="#"><%= image_tag "t1.jpg", class: "img-responsive" %></a></li>
-            <li><a href="#"><%= image_tag "m1.jpg", class: "img-responsive" %></a></li>
-            <li><a href="#"><%= image_tag "f1.jpg", class: "img-responsive" %></a></li>
-            <li><a href="#"><%= image_tag "m2.jpg", class: "img-responsive" %></a></li>
-          </ul>
-        </div>
-        <p><%= t ".txt" %></p>
       </div>
     </div>
+    <div class="clearfix"></div>
   </div>
-  <div class="clearfix"></div>
 </div>

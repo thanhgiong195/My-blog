@@ -46,7 +46,7 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <h1><%= t ".timeline" %></h1>
+            <%= render "shared/feed", feed_items: @feed_items %>
           </div>
         </div>
       </div>

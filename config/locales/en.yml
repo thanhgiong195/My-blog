@@ -14,7 +14,7 @@ en:
     header:
       home: "Home"
       my_post: "My posts"
-      account: "Account"
+      account: "My Page"
       logout: "Log out"
       login: "Log in"
       sign_up: "Sign up"
@@ -24,11 +24,12 @@ en:
       cancle: "Cancle"
       about: "About"
       contact: "Contact"
-      bebe_blog: "BeBe BLOG"
+      bebe_blog: "Yi BLOG"
       style: "LET'S MAKE A PERFECT STYLE"
-      post: "Posts"
+      post: "New Post"
     application:
       title: "My Blog"
+      go_top: "Go Top"
   static_pages:
     index:
       alo: "Hello"
