@@ -45,6 +45,11 @@ en:
       content_page: "Contrary to popular belief, Lorem Ipsum simply"
       text_ct: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
       read: "Read more"
+      pl_login: "Please log in."
+      title_placeholder: "Title..."
+      description_placeholder: "Description..."
+      content_placeholder: "Content..."
+      post: "Post"
   users:
     sessions:
       new:
@@ -113,3 +118,34 @@ en:
       admin: "ADMIN"
       follow: "Follow"
       timeline: "Timeline"
+  posts:
+    post:
+      read: "Read more"
+      by: "post by"
+      post: "post"
+      ago: "ago"
+    create:
+      post_success: "Create post success"
+      post_error: "Create post error!"
+    update:
+      update_success: "Update post success."
+      update_error: "Update post error!"
+    destroy:
+      delete_success: "Delete post success"
+      delete_error: "Delete post error"
+    edit:
+      edit_post: "Edit post"
+      pl_login: "Please log in!"
+    show:
+      by: "by"
+      post: "post"
+      ago: "ago"
+      edit: "Edit"
+      delete: "Delete"
+      you_sure: "You sure delete it?"
+  shared:
+    post_form:
+      post: "Post"
+      title: "Title..."
+      placeholder: "Content..."
+      save: "Save Blog"

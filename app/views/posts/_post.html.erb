@@ -1,0 +1,26 @@
+<div class="wthree">
+  <div class="col-md-6 wthree-left wow fadeInDown">
+    <div class="tch-img">
+      <a href="#"><%= image_tag "f1.jpg", class: "img-responsive" %></a>
+    </div>
+  </div>
+  <div class="col-md-6 wthree-right wow fadeInDown">
+    <h4><%= link_to post.title, post %></h4>
+    <small>
+      <%= t ".by" %> <%= link_to post.user.name, post.user %>
+      (<time class="timeago" datetime="<%= post.created_at.getutc.iso8601 %>"></time>)
+    </small>
+    <p><%= post.description.truncate_words Settings.post.length_des %><p>
+    <div class="bht1">
+      <%= link_to t(".read"), post %>
+    </div>
+    <div class="soci">
+      <ul>
+        <li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
+        <li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
+        <li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
