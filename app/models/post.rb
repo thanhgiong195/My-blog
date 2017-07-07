@@ -12,4 +12,5 @@ class Post < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   scope :feed_sort, ->{order created_at: :desc}
+  scope :publish, ->{where is_published: true}
 end

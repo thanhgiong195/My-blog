@@ -13,7 +13,6 @@
             <%= t ".by" %> <%= link_to @post.user.name, @post.user %>
             <%= t ".post" %> <time class="timeago" datetime="<%= @post.created_at.getutc.iso8601 %>"></time>
           </small>
-          <p><%= @post.content.html_safe %><p>
           <% if user_signed_in? %>
             <% if can? :update, @post.user %>
               <%= link_to t(".edit"), edit_post_path(@post), class: "btn-sm btn-warning"%>
@@ -21,6 +20,7 @@
                 data: {confirm: t(".you_sure")}, class: "btn-sm btn-danger" %>
             <% end %>
           <% end %>
+          <p><%= @post.content.html_safe %><p>
           <div class="soci">
             <ul>
               <li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
@@ -34,13 +34,15 @@
             <h2><%= t ".comment" %>: </h2>
             <%= render partial: "comments/comment", collection: @post.comments, as: "comment" %>
           </div>
-          <div class="comment-form">
-            <%= form_for([@post, @post.comments.build]) do |f| %>
-              <div class="box-comment">
-                <%= f.text_field :content, placeholder: t(".write_here"), class: "form-control f-comment" %>
-              </div>
-            <% end %>
-          </div>
+          <% if user_signed_in? %>
+            <div class="comment-form">
+              <%= form_for([@post, @post.comments.build]) do |f| %>
+                <div class="box-comment">
+                  <%= f.text_field :content, placeholder: t(".write_here"), class: "form-control f-comment" %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

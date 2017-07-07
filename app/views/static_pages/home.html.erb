@@ -8,19 +8,21 @@
 <div class="technology">
   <div class="container">
     <div class="col-md-9 technology-left">
-      <%= form_for @post do |f| %>
-        <div class="field">
-          <%= f.text_field :title, placeholder: t(".title_placeholder"), class: "form-control" %>
-        </div>
-        <div class="field">
-          <%= f.text_field :description, placeholder: t(".description_placeholder"), class: "form-control" %>
-        </div>
-        <div class="field">
-          <%= f.text_area :content, placeholder: t(".content_placeholder"), rows: "5", class: "form-control" %>
-        </div>
-        <span>
-          <%= f.submit t(".post"), class: "btn btn-primary btn-post" %>
-        </span>
+      <% if user_signed_in? %>
+        <%= form_for @post do |f| %>
+          <div class="field">
+            <%= f.text_field :title, placeholder: t(".title_placeholder"), class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.text_field :description, placeholder: t(".description_placeholder"), class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.text_area :content, placeholder: t(".content_placeholder"), rows: "5", class: "form-control" %>
+          </div>
+          <span>
+            <%= f.submit t(".post"), class: "btn btn-primary btn-post" %>
+          </span>
+        <% end %>
       <% end %>
       <div class="tech-no">
         <%= render "shared/feed", feed_items: @feed_items %>

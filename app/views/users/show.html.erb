@@ -17,7 +17,7 @@
                     <td><%= @user.name %></td>
                   </tr>
                   <tr>
-                    <td><%= link_to @user.email, "mailto:dkcbvn1995@gmail.com" %></td>
+                    <td><%= link_to @user.email, "mailto:" + @user.email %></td>
                   </tr>
                   <tr>
                     <td><%= @user.address %></td>
@@ -27,11 +27,15 @@
                   </tr>
                 </tbody>
               </table>
-              <a href="#" class="btn btn-primary"><%= t ".follow" %></a>
+              <% if current_user == @user %>
+                <%= link_to t(".newpost"), new_post_path, class: "btn btn-primary" %>
+              <% else %>
+                <a href="#" class="btn btn-primary"><%= t ".follow" %></a>
+              <% end %>
               <% if can? :update, @user %>
                 <span class="pull-right">
                   <%= link_to t(".edit_profile"), edit_user_registration_path,
-                    class: "btn btn btn-warning glyphicon glyphicon-edit" %>
+                    class: "btn btn btn-warning" %>
                 </span>
               <% end %>
             </div>
@@ -46,7 +50,7 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <h1><%= t ".timeline" %></h1>
+            <%= render "shared/feed", feed_items: @feed_items %>
           </div>
         </div>
       </div>
