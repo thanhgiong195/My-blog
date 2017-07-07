@@ -143,9 +143,15 @@ en:
       edit: "Edit"
       delete: "Delete"
       you_sure: "You sure delete it?"
+      comment: "Comments"
+      write_here: "Write comments here..."
   shared:
     post_form:
       post: "Post"
       title: "Title..."
       placeholder: "Content..."
       save: "Save Blog"
+  comments:
+    comment:
+      edit: "Edit"
+      delete: "Delete"

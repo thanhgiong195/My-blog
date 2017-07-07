@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     post "signup", to: "users/registrations#create"
   end
   resources :users, only: :show
-  resources :posts, expect: [:new, :index, :destroy]
+  resources :posts, except: [:new, :index, :destroy] do
+    resources :comments
+  end
 end
