@@ -14,6 +14,13 @@
             <%= f.label :description, t(".description") %>
             <%= f.text_field :description, class: "form-control" %>
           </li>
+          <li class="list-group-item">
+            <%= f.label :publish, t(".publish") %>
+            <%= f.select :is_published, options_for_select([true, false]) %>
+          </li>
+          <li class="list-group-item">
+            <%= f.file_field :picture %>
+          </li>
         </ul>
       </div>
       <br>

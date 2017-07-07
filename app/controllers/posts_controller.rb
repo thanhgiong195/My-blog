@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   load_resource
-  before_action :correct_user, only: [:destroy, :edit, :update]
 
   def create
     @post = current_user.posts.build post_params
@@ -38,7 +37,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit :title, :description, :content
+    params.require(:post).permit :title, :description, :content, :picture, :is_published
   end
 
   def correct_user

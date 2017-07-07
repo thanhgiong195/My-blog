@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170703065518) do
     t.string "description"
     t.text "content"
     t.string "picture"
-    t.boolean "publiced"
+    t.boolean "is_published", default: true
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

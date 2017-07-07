@@ -9,5 +9,7 @@ class Post < ApplicationRecord
   validates :description, length: {maximum: Settings.post.title_size}
   validates :content, presence: true, length: {maximum: Settings.post.content_size}
 
+  mount_uploader :picture, PictureUploader
+
   scope :feed_sort, ->{order created_at: :desc}
 end

@@ -10,6 +10,9 @@ post:
   content_size: 1000
   number_show: 5
   length_des: 20
+  height: 700
+  width: 700
+  post_default: "abc.jpg"
 comment:
   comment_max_size: 500
 tag:
