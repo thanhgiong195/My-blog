@@ -79,3 +79,47 @@
     height: 70px;
   }
 }
+
+.hide-comment {
+  display: none;
+}
+
+.comment {
+
+  h2 {
+    padding-bottom: 15px;
+  }
+
+  .time {
+    font-size: 12px;
+  }
+
+  .form-edit-cmt {
+    display: none;
+  }
+}
+
+.comment-form {
+  display: none;
+  padding-top: 20px;
+}
+
+.time-comment {
+  margin-bottom: 10px;
+  overflow: hidden;
+
+  .avatar-comment {
+    float: left;
+    padding-right: 5px;
+
+    img {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  .cmt-content {
+    float: left;
+    overflow: hidden;
+  }
+}
