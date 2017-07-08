@@ -16,6 +16,7 @@
         </small>
       </div>
       <p><%= post.description.truncate_words Settings.post.length_des %><p>
+      <%= post.comments.size %> <%= t ".comments" %>
     </div>
     <div class="bht1">
       <%= link_to t(".read"), post %>

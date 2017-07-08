@@ -8,18 +8,19 @@
               <%= image_tag @post.picture.url %>
             </div>
           </div>
-          <h2><%= @post.title %></h2>
+          <h3><%= @post.title %></h3>
           <small>
             <%= t ".by" %> <%= link_to @post.user.name, @post.user %>
             <%= t ".post" %> <time class="timeago" datetime="<%= @post.created_at.getutc.iso8601 %>"></time>
           </small>
-          <% if can? [:update, :destroy], @post.user %>
-            <%= link_to t(".edit"), edit_post_path(@post), class: "btn-sm btn-warning"%>
-            <%= link_to t(".delete"), @post, method: :delete,
-              data: {confirm: t(".you_sure")}, class: "btn-sm btn-danger" %>
-          <% end %>
-          <h4><%= @post.description %></h4>
           <p><%= @post.content.html_safe %><p>
+          <% if user_signed_in? %>
+            <% if can? :update, @post.user %>
+              <%= link_to t(".edit"), edit_post_path(@post), class: "btn-sm btn-warning"%>
+              <%= link_to t(".delete"), @post, method: :delete,
+                data: {confirm: t(".you_sure")}, class: "btn-sm btn-danger" %>
+            <% end %>
+          <% end %>
           <div class="soci">
             <ul>
               <li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
@@ -27,7 +28,19 @@
               <li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
             </ul>
           </div>
-          <div class="clearfix"></div>
+          <%= link_to t(".comment"), "#", id: "show-cmt", class: "nav-link" %>
+          <div class="hide-comment comment">
+            <hr>
+            <h2><%= t ".comment" %>: </h2>
+            <%= render partial: "comments/comment", collection: @post.comments, as: "comment" %>
+          </div>
+          <div class="comment-form">
+            <%= form_for([@post, @post.comments.build]) do |f| %>
+              <div class="box-comment">
+                <%= f.text_field :content, placeholder: t(".write_here"), class: "form-control f-comment" %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
