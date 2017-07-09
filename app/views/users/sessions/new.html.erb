@@ -26,12 +26,19 @@
                     <%= f.password_field :password, class: "form-control" %>
                   </div>
                   <% if devise_mapping.rememberable? %>
-                    <div class="form-group">
-                      <%= f.check_box :remember_me %>
+                    <div class="remember">
+                      <%= f.check_box :remember_me, class: "check-box" %>
                       <%= f.label :remember_me, t(".remember") %>
                     </div>
                   <% end %>
-                  <%= f.submit t(".login"), class: "btn btn-info btn-login" %>
+                  <%= f.submit t(".login"), class: "btn btn-login" %>
+                  <div class="signin-fb-gg">
+                    <div class="sign-inner">
+                      <%= link_to image_tag("signfb.png"), user_facebook_omniauth_authorize_path %>
+                      <%= t ".or" %>
+                      <%= link_to image_tag("signgg.png"), "#" %>
+                    </div>
+                  </div>
                 <% end %>
               </div>
             </div>

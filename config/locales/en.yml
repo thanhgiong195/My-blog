@@ -59,6 +59,8 @@ en:
         email: "Email"
         password: "Password"
         remember: "Remember me"
+        signin_fb: "Sign in with FB"
+        or: "or"
     registrations:
       new:
         name: "Name"
@@ -130,10 +132,13 @@ en:
       follow: "Follow"
     unfollow:
       unfollow: "Unfollow"
+    omniauth_callbacks:
+      facebook:
+        welcome: "Wellcome to Yi Blog, Please change your password, [pass default = 123123]"
   posts:
     post:
       read: "Read more"
-      by: "post by"
+      by: "posted by"
       post: "post"
       ago: "ago"
     create:
@@ -149,8 +154,7 @@ en:
       edit_post: "Edit post"
       pl_login: "Please log in!"
     show:
-      by: "by"
-      post: "post"
+      post: "posted by"
       ago: "ago"
       edit: "Edit"
       delete: "Delete"

@@ -21,6 +21,10 @@
           <li class="list-group-item">
             <%= f.file_field :picture %>
           </li>
+          <li class="list-group-item">
+            <%= f.label :tags, t(".tags") %>
+            <%= f.text_field :all_tags, class: "form-control" %>
+          </li>
         </ul>
       </div>
       <br>
