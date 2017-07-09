@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
-  load_resource
+  load_and_authorize_resource
+
+  def show
+    @top_post = Post.top_post
+  end
 
   def create
     @post = current_user.posts.build post_params
@@ -38,9 +42,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit :title, :description, :content, :picture, :is_published
-  end
-
-  def correct_user
-    @post = current_user.posts.find_by id: params[:id]
   end
 end

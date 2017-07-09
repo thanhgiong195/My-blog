@@ -5,15 +5,22 @@ user:
   avatar_default: "pic.png"
   avatar_height: 200
   avatar_width: 250
+  user_show: 15
 post:
   title_size: 300
-  content_size: 1000
-  number_show: 5
+  content_size: 10000
+  number_show: 10
   length_des: 20
   height: 700
   width: 700
   post_default: "abc.jpg"
+  limit_post: 8
 comment:
   comment_max_size: 500
 tag:
   tag_max: 100
+seed:
+  take_user: 10
+  title_post: 6
+  des_post: 12
+  content_post: 250

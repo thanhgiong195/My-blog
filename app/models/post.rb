@@ -12,4 +12,9 @@ class Post < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   scope :feed_sort, ->{order created_at: :desc}
+  scope :publish, ->{where is_published: true}
+  scope :top_post, lambda {
+    joins(:comments).select("COUNT(comments.id) AS comments_count, posts.*")
+      .group("posts.id").order("comments_count DESC").limit(Settings.post.limit_post)
+  }
 end
