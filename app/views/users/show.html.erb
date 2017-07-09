@@ -27,16 +27,32 @@
                   </tr>
                 </tbody>
               </table>
-              <a href="#" class="btn btn-primary"><%= t ".follow" %></a>
-              <% if can? :update, @user %>
-                <span class="pull-right">
-                  <%= link_to t(".edit_profile"), edit_user_registration_path,
-                    class: "btn btn btn-warning glyphicon glyphicon-edit" %>
-                </span>
-              <% end %>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="row stats">
+              <div class="col-md-4">
+                <%= @user.posts.size %> <%= t ".posts" %>
+              </div>
+              <div class="col-md-4">
+                <%= @user.following.size %> <%= t ".following" %>
+              </div>
+              <div class="col-md-4">
+                <%= @user.followers.size %> <%= t ".followers" %>
+              </div>
             </div>
           </div>
         </div>
+        <% if user_signed_in? %>
+          <div class="panel-footer">
+            <% if can? :update, @user %>
+              <%= link_to t(".edit_profile"), edit_user_registration_path,
+                class: "btn btn-warning glyphicon glyphicon-edit edit-profile" %>
+            <% else %>
+              <%= render "follow_form", follow_user: @follow_user, user: @user %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xs-offset-0 col-sm-offset-0 toppad">
