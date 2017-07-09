@@ -14,13 +14,15 @@
     <div class="col-md-3 technology-right">
       <div class="blo-top1">
         <div class="tech-btm">
-          <div class="search-1 wow fadeInDown">
-            <form action="#" method="post">
-              <input type="search" name="Search" value="Search">
-              <input type="submit" value=" ">
-            </form>
+          <form action="posts" method="get" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 my-lg-2" type="text"
+              placeholder="Search..." name="q">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">
+            <%= t ".search" %></button>
+          </form>
+          <div class="top-post-home">
+            <%= t ".popular_post" %>
           </div>
-          <h4><%= t ".popular_post" %></h4>
           <%= render "posts/top_post" %>
           <div class="insta wow fadeInDown top-user">
             <h4><%= t ".users" %></h4>

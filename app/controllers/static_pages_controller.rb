@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   def home
     @users = User.all
     if user_signed_in?
-      @feed_items = current_user.feed.feed_sort.page(params[:page]).per_page Settings.post.number_show
+      @feed_items = current_user.feed.publish.feed_sort.page(params[:page]).per_page Settings.post.number_show
     else
       @feed_items
     end
@@ -17,6 +17,6 @@ class StaticPagesController < ApplicationController
   end
 
   def top_post
-    @top_post = Post.top_post
+    @top_post = Post.top_post.publish
   end
 end

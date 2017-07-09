@@ -162,6 +162,9 @@ en:
       comment: "Comments"
       write_here: "Write comments here..."
       popular_post: "Top post"
+    index:
+      post_title: Title
+      author: "Author Post"
   shared:
     post_form:
       post: "Post"
