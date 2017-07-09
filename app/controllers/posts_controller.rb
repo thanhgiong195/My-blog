@@ -5,6 +5,14 @@ class PostsController < ApplicationController
     @top_post = Post.top_post
   end
 
+  def index
+    if params[:q]
+      @posts = Post.search(params[:q]).order(:title).page(params[:page]).per_page Settings.post.number_show
+    else
+      @posts = Post.all.publish
+    end
+  end
+
   def create
     @post = current_user.posts.build post_params
 

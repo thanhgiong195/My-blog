@@ -17,6 +17,11 @@ class Post < ApplicationRecord
     joins(:comments).select("COUNT(comments.id) AS comments_count, posts.*")
       .group("posts.id").order("comments_count DESC").limit Settings.post.limit_post
   }
+  scope :search, ->(search){where "title LIKE ?", "%#{search}%"}
+  scope :load_feed, ->(id, following_ids) do
+    where "user_id IN (#{following_ids}) OR user_id = :user_id",
+      following_ids: following_ids, user_id: id
+  end
 
   def all_tags=names
     self.tags = names.split(",").map do |name|

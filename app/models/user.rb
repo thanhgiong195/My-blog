@@ -14,7 +14,9 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   def feed
-    Post.where("user_id = ?", id)
+    following_ids = "SELECT followed_id FROM relationships
+      WHERE follower_id = :user_id"
+    Post.load_feed id, following_ids
   end
 
   def follow other_user

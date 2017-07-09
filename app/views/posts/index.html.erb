@@ -1,0 +1,17 @@
+<div class="container">
+  <ul class="show_posts">
+    <table class="table table-striped">
+        <tr>
+          <th class="col-md-8"><%= t ".post_title" %></th>
+          <th class="col-md-4"><%= t ".author" %></th>
+        </tr>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= link_to post.title, post %></td>
+            <td><%= link_to post.user.name, post.user %></td>
+          </tr>
+        <% end %>
+    </table>
+  </ul>
+</div>
+<%= will_paginate %>
