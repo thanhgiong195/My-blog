@@ -31,3 +31,10 @@ users = User.order(:created_at).take Settings.seed.take_user
   content = Faker::Lorem.sentence Settings.seed.content_post
   users.each{|user| user.posts.create! title: title, description: description, content: content}
 end
+
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each{|followed| user.follow followed}
+followers.each{|follower| follower.follow user}

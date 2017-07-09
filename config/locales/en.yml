@@ -36,7 +36,7 @@ en:
     home:
       txt: "Lorem ipsum ex vix illud nonummy, novum tation et his. At vix scripta patrioque scribentur, at pro"
       users: "Users"
-      popular_post: "Popular post"
+      popular_post: "Top post"
       txt_post: "Title post"
       by: "by"
       author_post: "Author post"
@@ -119,6 +119,17 @@ en:
       admin: "ADMIN"
       follow: "Follow"
       timeline: "Timeline"
+      posts: "Posts"
+      following: "following"
+      followers: "followers"
+    following:
+      following: "Following"
+    followers:
+      followers: "Followers"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
   posts:
     post:
       read: "Read more"
@@ -146,6 +157,7 @@ en:
       you_sure: "You sure delete it?"
       comment: "Comments"
       write_here: "Write comments here..."
+      popular_post: "Top post"
   shared:
     post_form:
       post: "Post"
