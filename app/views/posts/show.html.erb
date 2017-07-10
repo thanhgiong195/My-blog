@@ -33,14 +33,16 @@
             <h2><%= t ".comment" %>: </h2>
             <%= render partial: "comments/comment", collection: @post.comments, as: "comment" %>
           </div>
-          <% if user_signed_in? %>
-            <div class="comment-form">
-              <%= form_for([@post, @post.comments.build]) do |f| %>
-                <div class="box-comment">
-                  <%= f.text_field :content, placeholder: t(".write_here"), class: "form-control f-comment" %>
-                </div>
-              <% end %>
-            </div>
+          <% if user_signed_in? &&  %>
+            <% if current_user.following? @post.user or current_user == @post.user %>
+              <div class="comment-form">
+                <%= form_for([@post, @post.comments.build]) do |f| %>
+                  <div class="box-comment">
+                    <%= f.text_field :content, placeholder: t(".write_here"), class: "form-control f-comment" %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
