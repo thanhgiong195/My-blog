@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
+  before_action :tag_all, only: :show
 
   def show
     @top_post = Post.top_post
@@ -13,6 +14,9 @@ class PostsController < ApplicationController
     end
   end
 
+  def new
+  end
+
   def create
     @post = current_user.posts.build post_params
 
@@ -20,9 +24,8 @@ class PostsController < ApplicationController
       flash[:success] = t ".post_success"
       redirect_to @post
     else
-      flash.now[:danger] = t ".post_error"
       @feed_items = []
-      redirect_to root_path
+      render :new
     end
   end
 
@@ -51,5 +54,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit :title, :description, :content, :picture,
       :is_published, :all_tags
+  end
+
+  def tag_all
+    @tag_all = Tag.all
   end
 end

@@ -1,0 +1,16 @@
+<tr>
+  <td class="col-md-5">
+    <%= link_to user.name, user %>
+    <% if user.is_admin? %>
+      (<%= t ".admin" %>)
+    <% end %>
+  </td>
+  <td><%= user.email %></td>
+  <td><%= user.posts.size %></td>
+  <td>
+    <% if current_user.is_admin? && current_user != user %>
+      <%= link_to t(".delete"), user, method: :delete,
+        data: {confirm: t(".sure")}, class: "btn btn-danger button_text" %>
+    <% end %>
+  </td>
+</tr>

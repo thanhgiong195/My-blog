@@ -11,6 +11,8 @@ en:
       name: "Name"
       email: "Email"
       mobile: "Mobile"
+      author: "Authors"
+      newpost: "Newpost"
     header:
       home: "Home"
       my_post: "My posts"
@@ -27,12 +29,19 @@ en:
       bebe_blog: "Yi BLOG"
       style: "LET'S MAKE A PERFECT STYLE"
       post: "New Post"
+      admin: "Admin"
+      authors: "Authors"
     application:
-      title: "My Blog"
+      title: "YI Blog"
       go_top: "Go Top"
   static_pages:
     index:
       alo: "Hello"
+      all_user: "All user"
+      name: "Name"
+      total_post: "Total post"
+      delete: "Delete"
+      cofirm_delete: "you sure delete it?"
     home:
       txt: "Lorem ipsum ex vix illud nonummy, novum tation et his. At vix scripta patrioque scribentur, at pro"
       users: "Users"
@@ -61,6 +70,9 @@ en:
         remember: "Remember me"
         signin_fb: "Sign in with FB"
         or: "or"
+    destroy:
+      delete_success: "Delete success"
+      delete_error: "Delete error"
     registrations:
       new:
         name: "Name"
@@ -171,6 +183,9 @@ en:
       title: "Title..."
       placeholder: "Content..."
       save: "Save Blog"
+    error_messages:
+      error: "error"
+      the_form: "The form"
   comments:
     comment:
       edit: "Edit"
@@ -181,3 +196,29 @@ en:
       comments: "comments"
       by: "by"
       tags: "Tags"
+  admin:
+    user:
+      user:
+        sure: "You sure delete it?"
+        delete: "Delete"
+    users:
+      index:
+        managerpost: "Manager Posts"
+        user: "User"
+        email: "Email"
+        posts: "Posts"
+        action: "Action"
+        admin: "Admin"
+      user:
+        admin: "Admin"
+        sure: "You sure delete it?"
+        delete: "Delete"
+    posts:
+      index:
+        manageruser: "Manager Users"
+        title: "Title"
+        author: "Author"
+        action: "Action"
+      post:
+        delete: "Delete"
+        sure: "You sure delete it?"

@@ -3,15 +3,23 @@
     <%= image_tag comment.user.avatar %>
   </div>
   <div class="cmt-content">
-    <%= link_to comment.user.name, @post.user %>:
-    <%= comment.content %>
+    <%= link_to comment.user.name, comment.user %>:
+    <span class="text-comment"><%= comment.content %></span>
     <div class="time">
       (<time class="timeago" datetime="<%= comment.created_at.getutc.iso8601 %>"></time>)
-      <% if (current_user == comment.user) ||
-        (current_user == @post.user) %>
-        <%= link_to t(".edit"), "#", id: "show-edit-comment" %>
-        <%= link_to t(".delete"), [comment.post, comment],
-          method: :delete, data: {confirm: t(".you_sure")}, class: "delete" %>
+      <% if user_signed_in? %>
+        <% if (current_user == @post.user || current_user == comment.user || current_user.is_admin?) %>
+          <% if current_user == comment.user %>
+            <%= link_to t(".edit"), "#",class: "edit-post-comment" %>
+          <% end %>
+          <%= link_to t(".delete"), [comment.post, comment],
+            method: :delete, data: {confirm: t(".you_sure")}, class: "delete" %>
+          <div class="form-edit">
+            <%= form_for [comment.post, comment], html: {class: "ed-comment"} do |f| %>
+              <%= f.text_field :content, class: "form-control update-comment" %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

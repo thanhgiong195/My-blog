@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :load_post, only: [:create, :destroy]
-  before_action :load_comment, only: [:destroy, :create]
+  before_action :load_post, only: [:create, :destroy, :edit, :update]
+  before_action :load_comment, only: [:destroy, :create, :edit, :update]
 
   def create
     @comment = @post.comments.build comment_params
@@ -9,6 +9,16 @@ class CommentsController < ApplicationController
       render json: {status: :success, html: render_to_string(@comment)}
     else
       render json: {status: :error, html: "error"}
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @comment.update comment_params
+       render json: {status: :success, content: @comment.content}
     end
   end
 

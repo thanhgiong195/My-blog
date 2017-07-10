@@ -1,0 +1,11 @@
+<tr>
+  <td><%= link_to post.title, post %></td>
+  <td>
+    <%= post.user.name %>
+  </td>
+  <td>
+    <% if can? :manage, post %>
+      <%= link_to t(".delete"), admin_post_path(post), method: :delete, data: {confirm: t(".sure")}, class: "btn btn-danger button_text" %>
+    <% end %>
+  </td>
+</tr>

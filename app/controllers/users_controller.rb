@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  load_resource only: :show
+  load_resource only: [:show, :destroy]
   before_action :feed_all, only: :show
 
   def show
@@ -14,6 +14,16 @@ class UsersController < ApplicationController
 
   def index
     @users = User.order(:name).page(params[:page]).per_page Settings.user.user_show
+  end
+
+  def destroy
+    if @user.destroy
+      flash[:success] = t ".delete_success"
+      redirect_to admin_root_path
+    else
+      flash[:danger] = t ".delete_error"
+      redirect_back fallback_location: admin_root_path
+    end
   end
 
   def following

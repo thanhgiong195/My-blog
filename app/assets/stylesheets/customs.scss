@@ -9,6 +9,27 @@
   }
 }
 
+.info-user {
+  margin-top: 10px;
+  width: 100px;
+}
+
+.add-pic {
+  width: 100%;
+}
+
+.tag-show-all {
+  margin-top: 15px;
+}
+
+.form-post-dz {
+  margin-bottom: 6px;
+}
+
+.btn-tags {
+  colors: blue;
+}
+
 .btn-login {
   background-color: $green-color;
   color: $primary-color-text;
@@ -129,6 +150,15 @@
 }
 
 .show-users {
+  list-style: none;
+  margin: 0;
+
+  li {
+    border-bottom: 1px solid $divider-color;
+    overflow: auto;
+    padding: 10px 0;
+  }
+
   img {
     height: 100px;
     margin-top: 30px;
@@ -141,8 +171,8 @@
 
   .img-top-post {
     img {
-      height: 60px;
-      width: auto;
+      max-height: 70px;
+      max-width: 95px;
     }
   }
 }
@@ -180,11 +210,15 @@
   }
 }
 
-.show_posts {
+.show-posts {
   background-color: $nerwhile-color;
   border: 2px;
 }
 
 .top-post-home {
   margin-top: 20px;
+}
+
+.form-edit {
+  display: none;
 }

@@ -6,9 +6,12 @@
           <nav class="link-effect-7" id="link-effect-7">
             <ul class="nav navbar-nav">
               <li><%= link_to t(".home"), root_path %></li>
+              <li><%= link_to t(".authors"), users_path %></li>
               <% if user_signed_in? %>
                 <li><%= link_to t(".post"), new_post_path %></li>
-                <li><%= link_to t(".authors"), users_path %></li>
+                <% if current_user.is_admin? %>
+                  <li><%= link_to t(".admin"), admin_root_path %></li>
+                <% end %>
                 <li><%= link_to t(".account"), current_user %></li>
                 <li><%= link_to t(".logout"), destroy_user_session_path,
                   method: :delete %></li>

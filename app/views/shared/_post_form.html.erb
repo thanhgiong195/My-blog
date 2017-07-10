@@ -1,10 +1,11 @@
 <%= form_for post do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
   <div class="row">
     <div class="col-md-3">
       <div class="card">
-        <ul class="list-group list-group-flush">
+        <ul class=" list-group-flush form-post-dz">
           <li class="list-group-item">
-            <label for="exampleInput"><%= t ".edit" %></label>
+            <label for="exampleInput">Info BLOG</label>
           </li>
           <li class="list-group-item">
             <%= f.label :title, t(".title") %>
@@ -19,7 +20,7 @@
             <%= f.select :is_published, options_for_select([true, false]) %>
           </li>
           <li class="list-group-item">
-            <%= f.file_field :picture %>
+            <%= f.file_field :picture, class: "add-pic" %>
           </li>
           <li class="list-group-item">
             <%= f.label :tags, t(".tags") %>
@@ -27,7 +28,6 @@
           </li>
         </ul>
       </div>
-      <br>
       <div class="actions">
         <%= f.submit t(".save"), class: "btn btn-success btn-block" %>
       </div>

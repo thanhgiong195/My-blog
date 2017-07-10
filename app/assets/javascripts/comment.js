@@ -16,7 +16,6 @@ $(document).on('turbolinks:load', function() {
           comment.closest('body').find('.f-comment').val('');
         }
       });
-    return false;
   });
 
   $('body').on('click','.delete', function(event) {
@@ -36,10 +35,37 @@ $(document).on('turbolinks:load', function() {
     return false;
   });
 
+ $('body').on('click', '.edit-post-comment', function(event) {
+    event.preventDefault();
+    $(this).next().next().fadeToggle();
+  });
+
+ $('body').on('submit', '.ed-comment', function(event) {
+   event.preventDefault();
+   var self = $(this);
+   var params_edit_comment = self.serialize();
+   $.ajax({
+     url: self.attr('action'),
+     type: 'put',
+     dataType: 'json',
+     data: params_edit_comment,
+   })
+   .done(function(response) {
+     self.closest('.cmt-content').find('.text-comment').text(response.content);
+     $('.form-edit').hide();
+   })
+   .fail(function() {
+     console.log("error");
+   })
+   .always(function() {
+     console.log("complete");
+   });
+ });
+
   $('body').on('click', '#show-cmt', function(event) {
     event.preventDefault();
     $('.comment').fadeToggle('medium');
     $('.comment-form').fadeToggle('medium');
+    return false;
   });
 });
-
