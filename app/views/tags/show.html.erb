@@ -1,0 +1,33 @@
+<% @tag_posts.each do |post| %>
+  <div class="wthree col-m">
+    <div class="col-md-4 wthree-left wow fadeInDown">
+      <div class="tch-img">
+        <div class="img-post">
+          <%= link_to image_tag(post.picture.url), post %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 wthree-right wow fadeInDown">
+      <div class="post-show-home">
+        <div class="title-post">
+          <h4><%= link_to post.title, post %></h4>
+          <%= t ".tags" %>:
+          <% post.tags.each do |tag| %>
+            <%= link_to tag.name, tag %>
+          <% end %>
+          <br>
+          <small>
+            <%= t ".by" %> <%= link_to post.user.name, post.user %>
+            (<time class="timeago" datetime="<%= post.created_at.getutc.iso8601 %>"></time>)
+          </small>
+        </div>
+        <p><%= post.description.truncate_words Settings.post.length_des %><p>
+        <%= post.comments.size %> <%= t ".comments" %>
+      </div>
+      <div class="bht1">
+        <%= link_to t(".read"), post %>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+<% end %>

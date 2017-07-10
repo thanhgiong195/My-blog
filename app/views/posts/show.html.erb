@@ -9,7 +9,10 @@
             </div>
           </div>
           <h3><%= @post.title %></h3>
-          <%= t ".tags" %>: <%= @post.all_tags %><br>
+          <%= t ".tags" %>:
+          <% @post.tags.each do |tag| %>
+            <%= link_to tag.name, tag %>
+          <% end %>
           <small>
             <%= t ".post" %> <%= link_to @post.user.name, @post.user %>
             <time class="timeago" datetime="<%= @post.created_at.getutc.iso8601 %>"></time>

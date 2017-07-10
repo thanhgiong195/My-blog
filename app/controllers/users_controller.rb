@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @follow_user = current_user.active_relationships.build if user_signed_in?
 
     if current_user == @user
-      @feed_items = current_user.feed_sort.page(params[:page]).per_page Settings.post.number_show
+      @feed_items = current_user.posts.feed_sort.page(params[:page]).per_page Settings.post.number_show
     else
       @feed_items
     end

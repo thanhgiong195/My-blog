@@ -175,3 +175,9 @@ en:
     comment:
       edit: "Edit"
       delete: "Delete"
+  tags:
+    show:
+      read: "Read more"
+      comments: "comments"
+      by: "by"
+      tags: "Tags"
