@@ -20,8 +20,6 @@
 /node_modules
 /yarn-error.log
 /.framgia-ci-reports/*
-/config/database.yml
-/config/database.yml
 /.framgia-ci-result.temp.yml
 .byebug_history
 
