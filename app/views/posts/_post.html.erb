@@ -10,6 +10,10 @@
     <div class="post-show-home">
       <div class="title-post">
         <h4><%= link_to post.title, post %></h4>
+        <%= t ".tags" %>:
+        <% post.tags.each do |tag| %>
+          <%= link_to tag.name, tag %>
+        <% end %>
         <small>
           <%= t ".by" %> <%= link_to post.user.name, post.user %>
           (<time class="timeago" datetime="<%= post.created_at.getutc.iso8601 %>"></time>)
