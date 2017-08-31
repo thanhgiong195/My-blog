@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <%= link_to t(".manageruser"), admin_users_path, class: "btn btn-primary" %>
+    (<%= @posts.size %>) posts
+    <p>
+      Download:
+      <%= link_to "CSV", admin_posts_path(format: "csv") %> |
+      <%= link_to "Excel", admin_posts_path(format: "xls") %>
+    </p>
+    <div class="col-lg-10 col-md-offset-1">
+      <div class="table-responsive">
+        <table class="table user-list" id="my-users">
+          <thead>
+            <tr id="my-users">
+              <th class="col-md-8"><%= t ".title"%></th>
+              <th class="col-md-4"><%= t ".author" %></th>
+              <th class="col-md-4"><%= t ".action" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @posts %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

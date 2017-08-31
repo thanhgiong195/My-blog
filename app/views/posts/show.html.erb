@@ -11,23 +11,24 @@
           <h3><%= @post.title %></h3>
           <%= t ".tags" %>:
           <% @post.tags.each do |tag| %>
-            <%= link_to tag.name, tag %>
+            <%= link_to tag.name, tag, class: "btn-sm btn-info" %>
           <% end %>
+          <br>
           <small>
             <%= t ".post" %> <%= link_to @post.user.name, @post.user %>
             <time class="timeago" datetime="<%= @post.created_at.getutc.iso8601 %>"></time>
           </small>
-          <% if can? :update, @post.user %>
-            <%= link_to t(".edit"), edit_post_path(@post), class: "btn-sm btn-warning"%>
-            <%= link_to t(".delete"), @post, method: :delete,
-              data: {confirm: t(".you_sure")}, class: "btn-sm btn-danger" %>
+          <% if user_signed_in? %>
+            <% if can? :update, @post.user or current_user.is_admin? %>
+              <%= link_to t(".edit"), edit_post_path(@post), class: "btn-sm btn-warning"%>
+              <%= link_to t(".delete"), @post, method: :delete,
+                data: {confirm: t(".you_sure")}, class: "btn-sm btn-danger" %>
+            <% end %>
           <% end %>
           <p><%= @post.content.html_safe %><p>
           <div class="soci">
             <ul>
-              <li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
-              <li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
-              <li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
+              <li class="hvr-rectangle-out"><%= social_share_button_tag @post.title, url: request.original_url %></li>
             </ul>
           </div>
           <%= link_to t(".comment"), "#", id: "show-cmt", class: "nav-link" %>
@@ -37,13 +38,15 @@
             <%= render partial: "comments/comment", collection: @post.comments, as: "comment" %>
           </div>
           <% if user_signed_in? %>
-            <div class="comment-form">
-              <%= form_for([@post, @post.comments.build]) do |f| %>
-                <div class="box-comment">
-                  <%= f.text_field :content, placeholder: t(".write_here"), class: "form-control f-comment" %>
-                </div>
-              <% end %>
-            </div>
+            <% if current_user.following? @post.user or current_user == @post.user %>
+              <div class="comment-form">
+                <%= form_for([@post, @post.comments.build]) do |f| %>
+                  <div class="box-comment">
+                    <%= f.text_field :content, placeholder: t(".write_here"), class: "form-control f-comment" %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -55,6 +58,16 @@
             <h4><%= t ".popular_post" %></h4>
           </div>
           <%= render "posts/top_post" %>
+          <div class="blog-grids wow fadeInDown top-post-tag">
+            <h4>All tags</h4>
+            <ul>
+              <% @tag_all.each do |tag| %>
+                <% if tag.posts.any? %>
+                  <%= link_to tag.name, tag, class: "btn-sm btn-info tag-all-show" %>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

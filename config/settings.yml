@@ -14,7 +14,7 @@ post:
   height: 700
   width: 700
   post_default: "abc.jpg"
-  limit_post: 8
+  limit_post: 15
 comment:
   comment_max_size: 500
 tag:

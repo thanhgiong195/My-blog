@@ -14,6 +14,18 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+  def check
+    if user_signed_in?
+      unless current_user.is_admin?
+        flash[:error] = "You can not go to page admin"
+        redirect_to root_path
+      end
+    else
+      flash[:error] = "You can not go to page admin"
+      redirect_to root_path
+    end
+  end
+
   protected
 
   def configure_permitted_parameters

@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   validates :user, presence: true
   validates :title, presence: true, length: {maximum: Settings.post.title_size}
   validates :description, length: {maximum: Settings.post.title_size}
-  validates :content, presence: true, length: {maximum: Settings.post.content_size}
+  validates :content, presence: true
 
   mount_uploader :picture, PictureUploader
 
@@ -15,9 +15,9 @@ class Post < ApplicationRecord
   scope :publish, ->{where is_published: true}
   scope :top_post, lambda {
     joins(:comments).select("COUNT(comments.id) AS comments_count, posts.*")
-      .group("posts.id").order("comments_count DESC").limit Settings.post.limit_post
+    .group("posts.id").order("comments_count DESC").limit Settings.post.limit_post
   }
-  scope :search, ->(search){where "title LIKE ?", "%#{search}%"}
+  scope :search, ->(search){where "title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%"}
   scope :load_feed, ->(id, following_ids) do
     where "user_id IN (#{following_ids}) OR user_id = :user_id",
       following_ids: following_ids, user_id: id
@@ -31,5 +31,14 @@ class Post < ApplicationRecord
 
   def all_tags
     tags.map(&:name).join(", ")
+  end
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |post|
+        csv << post.attributes.values_at(*column_names)
+      end
+    end
   end
 end

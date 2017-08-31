@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: "static_pages#home"
-  get "index", to: "static_pages#index"
   get "about", to: "static_pages#about"
   get "contact", to: "static_pages#contact"
 
@@ -15,7 +14,12 @@ Rails.application.routes.draw do
     get "signup", to: "users/registrations#new"
     post "signup", to: "users/registrations#create"
   end
-  resources :users, only: [:show, :index] do
+  namespace :admin do
+    root to: "users#index"
+    resources :users, only: [:index, :destroy]
+    resources :posts, only: [:index, :destroy]
+  end
+  resources :users, only: [:show, :index, :destroy] do
     member do
       get :following, :followers
     end

@@ -2,7 +2,7 @@
   <div class="col-md-6 wthree-left wow fadeInDown">
     <div class="tch-img">
       <div class="img-post">
-        <%= link_to image_tag(post.picture.url), post %>
+        <%= link_to image_tag(post.picture.url), post, class: "img-responsive" %>
       </div>
     </div>
   </div>
@@ -12,8 +12,9 @@
         <h4><%= link_to post.title, post %></h4>
         <%= t ".tags" %>:
         <% post.tags.each do |tag| %>
-          <%= link_to tag.name, tag %>
+          <%= link_to tag.name, tag, class: "btn-sm btn-info" %>
         <% end %>
+        <br>
         <small>
           <%= t ".by" %> <%= link_to post.user.name, post.user %>
           (<time class="timeago" datetime="<%= post.created_at.getutc.iso8601 %>"></time>)
@@ -27,9 +28,7 @@
     </div>
     <div class="soci">
       <ul>
-        <li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
-        <li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
-        <li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
+        <li class="hvr-rectangle-out"><%= social_share_button_tag post.title, url: request.original_url %></li>
       </ul>
     </div>
   </div>

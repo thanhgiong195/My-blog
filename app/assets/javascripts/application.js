@@ -19,6 +19,7 @@
 //= require classie.js
 //= require jquery.chocolat.js
 //= require jquery.timeago.js
+//= require social-share-button
 
 document.addEventListener('turbolinks:load', function() {
   tinymce.remove();
